@@ -3,7 +3,12 @@ const mongo = require("mongoose")
 const cors = require("cors")
 const app = express() //server
 //json mware
-app.use(cors())
+app.use(cors({
+    origin: "https://onest-mern-app-frontend.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
+
 app.use(express.json())
 //var todo = []; //post data
 //DB connect
