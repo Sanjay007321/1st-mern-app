@@ -185,8 +185,9 @@ return (
            <div className=''style={{opacity: value ? 1 : 0}}> 
             <ul className='list-group'>
               {
-                bbms.map((item)=> 
+                bbms.map((item)=> {
                <li key ={item._id} className='list-group-item bg- my-2'>
+                         }
                <div className='d-flex flex-row gap-5'>
                 {
                   editId !== item._id || editId ==-1 ? (
