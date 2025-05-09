@@ -187,7 +187,7 @@ return (
               {
                 bbms.map((item)=> {
                <li key ={item._id} className='list-group-item bg- my-2'>
-                         }
+                         
                <div className='d-flex flex-row gap-5'>
                 {
                   editId !== item._id || editId ==-1 ? (
@@ -209,7 +209,8 @@ return (
                { editId === -1 || editId !== item._id ?<button className='btn btn-danger' onClick={() => handleDelete(item._id)}>Delete</button>:
                <button className='btn btn-danger' onClick={handleCancel}>Cancel</button>}
                </div>
-               </div></li>)
+               </div></li>}
+                 )
               }
             </ul>
             </div>
