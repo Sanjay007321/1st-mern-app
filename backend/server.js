@@ -12,7 +12,7 @@ app.use(cors({
 app.use(express.json())
 //var todo = []; //post data
 //DB connect
-mongo.connect("mongodb://localhost:27017").then(()=>{
+mongo.connect("mongodb+srv://saniay007aj:PRlr7P4zjqbmGVgL@cluster0.4fhgz1q.mongodb.net/").then(()=>{
     console.log("Mdb CONNECTED")
 }).catch(()=>{console.log("ERROR")})
 //schema
