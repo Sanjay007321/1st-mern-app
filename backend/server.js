@@ -68,7 +68,7 @@ app.delete('/bbm/:id',async(req,res)=>{
        res.status(500).json({message:error.message}); 
     }
 })
-const port = 8000;
+const port = process.env.PORT || 8000;
 app.listen(port,()=>{
     console.log(`success is listening to ${port}`)
 })
