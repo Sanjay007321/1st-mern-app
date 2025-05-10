@@ -38,15 +38,16 @@ app.post('/bbm',async(req,res)=>{
     }
 })
 //receive || read
-app.get('/bbm',async(req,res)=>{
-    try {
-        const data = await User.find()
-        res.json(data)
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({message:error.message}); 
-    }
-})
+app.get('/bbm', async (req, res) => {
+  try {
+    const data = await User.find();
+    res.json(data);
+  } catch (error) {
+    console.error("Error in GET /bbm:", error); // <-- add this
+    res.status(500).json({ message: error.message });
+  }
+});
+
 //update 
 app.put('/bbm/:id',async(req,res)=>{
    try {
