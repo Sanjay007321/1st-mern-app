@@ -114,13 +114,25 @@ else{setErr("Unable to Create")}
 useEffect(()=>{
   getItems()
 },[])
-const getItems = ()=>{
-  fetch(apiUrl+"/bbm")
-  .then((res)=>res.json())
-  .then((res)=>{
-    setBbms(res)
-  })
-}
+const getItems = () => {
+  fetch(apiUrl + "/bbm")
+    .then((res) => {
+      if (!res.ok) throw new Error("Failed to fetch data");
+      return res.json();
+    })
+    .then((data) => {
+      if (Array.isArray(data)) {
+        setBbms(data);
+      } else {
+        throw new Error("Data format incorrect");
+      }
+    })
+    .catch((err) => {
+      console.error("Error fetching items:", err);
+      setErr("Unable to fetch list. Please try again later.");
+    });
+};
+
 const handleDelete = (_id) => {
   if(window.confirm("Are You Sure Want To Delete")){
   fetch(`${apiUrl}/bbm/${_id}`, {
