@@ -95,7 +95,9 @@ const handleSubmit = ()=>{
   }).then((res)=>{
   if(res.ok)
   {
-    setBbms([...bbms,{name,blood,contact}]);
+    res.json().then((newEntry) => {
+      setBbms([...bbms, newEntry]);
+    });
     setSuccess("Details Added Successfully!!!")
     setTimeout(()=>{
       setSuccess("")
